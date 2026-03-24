@@ -4,23 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>[COMPANY_NAME] — Logged Out</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600&family=Sarabun:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    :root{--navy:#1a1f2e;--canvas:#f7f5f0;--surface:#ffffff;--border:#e4e1db;--border-soft:#ede9e3;--text:#1a1f2e;--text-3:#9a9690;--s-green:#166534;--s-green-bg:#dcfce7;--s-green-border:#86efac;}
+    :root{--bg:#f5f0e8;--surface:#fdfaf5;--surface-2:#f0ebe0;--text:#2c1f14;--text-muted:#9c8870;--border:#e0d5c5;--border-soft:#ede8de;--brand:#5c3d2e;--green:#5a7c5a;--green-bg:#eef3ee;--green-border:#b8d0b8;}
     *{box-sizing:border-box;margin:0;padding:0;}
-    body{font-family:'Plus Jakarta Sans','Sarabun',sans-serif;background:var(--canvas);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;}
-    .card{background:var(--surface);border:1px solid var(--border);border-radius:16px;width:100%;max-width:360px;overflow:hidden;box-shadow:0 4px 24px rgba(26,31,46,0.08);text-align:center;position:relative;}
-    .lang-toggle{position:absolute;top:14px;right:14px;display:flex;background:var(--canvas);border:1px solid var(--border);border-radius:16px;padding:3px;gap:2px;}
-    .lang-btn{padding:3px 8px;border-radius:12px;font-size:10px;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--text-3);transition:all 0.15s;}
-    .lang-btn.active{background:var(--navy);color:#fff;}
+    body{font-family:'DM Sans',sans-serif;background:var(--bg);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;}
+    .card{background:var(--surface);border:1px solid var(--border);border-radius:16px;width:100%;max-width:360px;overflow:hidden;box-shadow:0 4px 24px rgba(44,31,20,0.07);text-align:center;position:relative;}
+    .lang-toggle{position:absolute;top:14px;right:14px;display:flex;background:var(--surface-2);border:1px solid var(--border);border-radius:16px;padding:3px;gap:2px;}
+    .lang-btn{padding:3px 8px;border-radius:12px;font-size:10px;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--text-muted);transition:all 0.15s;}
+    .lang-btn.active{background:var(--brand);color:#fdfaf5;}
     .card-top{padding:36px 32px 28px;border-bottom:1px solid var(--border-soft);}
-    .check-wrap{width:56px;height:56px;border-radius:50%;background:var(--s-green-bg);border:1px solid var(--s-green-border);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:22px;color:var(--s-green);}
-    .title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--text);margin-bottom:8px;}
-    .subtitle{font-size:13px;color:var(--text-3);line-height:1.6;}
+    .check-wrap{width:56px;height:56px;border-radius:50%;background:var(--green-bg);border:1px solid var(--green-border);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:22px;color:var(--green);}
+    .title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--text);margin-bottom:8px;}
+    .subtitle{font-size:13px;color:var(--text-muted);line-height:1.6;}
     .card-body{padding:24px 32px 32px;}
-    .btn{width:100%;height:50px;background:var(--navy);color:#fff;border:none;border-radius:10px;font-family:'Plus Jakarta Sans','Sarabun',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:opacity 0.15s,transform 0.15s;}
-    .btn:active{transform:scale(0.98);}
-    .footer{padding:0 32px 20px;font-size:10px;font-weight:500;color:var(--text-3);letter-spacing:1.5px;text-transform:uppercase;}
+    .btn{width:100%;height:50px;background:var(--brand);color:#fdfaf5;border:none;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:opacity 0.15s,transform 0.15s;}
+    .btn:active{transform:scale(0.98);opacity:0.85;}
+    .footer{padding:0 32px 20px;font-size:10px;font-weight:500;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;}
   </style>
 </head>
 <body>

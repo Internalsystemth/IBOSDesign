@@ -4,51 +4,52 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>[COMPANY_NAME] — Branch Ordering</title>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f2f2f7; --surface: #ffffff;
-      --text: #000000; --text-muted: #8e8e93;
-      --border: #c6c6c8; --blue: #007aff; --red: #ff3b30;
-      --brand: #1a1f2e;
+      --bg: #f5f0e8; --surface: #fdfaf5; --surface-2: #f0ebe0;
+      --text: #2c1f14; --text-muted: #9c8870;
+      --border: #e0d5c5; --border-soft: #ede8de;
+      --brand: #5c3d2e; --brand-light: #8b6347; --accent: #c8956c;
+      --red: #b85c4a; --green: #5a7c5a; --orange: #c8834a; --blue: #6b7fa3;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-    body { font-family: -apple-system, BlinkMacSystemFont, "Plus Jakarta Sans", sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 16px; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
     
     .login-container { width: 100%; max-width: 360px; }
-    .header-text { text-align: center; margin-bottom: 32px; }
-    .company-title { font-size: 28px; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 4px; }
-    .system-title { font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+    .header-text { text-align: center; margin-bottom: 36px; }
+    .company-title { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 700; letter-spacing: 2px; margin-bottom: 6px; color: var(--brand); }
+    .system-title { font-size: 11px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; }
     
-    .ios-card { background: var(--surface); border-radius: 12px; overflow: hidden; margin-bottom: 24px; }
-    .ios-list-item { padding: 12px 16px; border-bottom: 0.5px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+    .ios-card { background: var(--surface); border-radius: 14px; overflow: hidden; margin-bottom: 16px; border: 1px solid var(--border); }
+    .ios-list-item { padding: 12px 16px; border-bottom: 1px solid var(--border-soft); display: flex; align-items: center; justify-content: space-between; }
     .ios-list-item:last-child { border-bottom: none; }
     
-    .pin-input { width: 100%; border: none; font-size: 24px; font-weight: 600; letter-spacing: 8px; text-align: center; outline: none; padding: 16px; font-family: monospace; background: transparent; }
-    .pin-input::placeholder { color: var(--border); letter-spacing: 8px; }
+    .pin-input { width: 100%; border: none; font-size: 26px; font-weight: 600; letter-spacing: 10px; text-align: center; outline: none; padding: 18px; font-family: monospace; background: transparent; color: var(--brand); }
+    .pin-input::placeholder { color: var(--border); letter-spacing: 10px; }
     .pin-input.shake { color: var(--red); animation: shake 0.35s ease; }
-    @keyframes shake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-5px)} 60%{transform:translateX(5px)} }
+    @keyframes shake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-6px)} 60%{transform:translateX(6px)} }
     
-    .error-msg { font-size: 13px; color: var(--red); text-align: center; min-height: 18px; margin-bottom: 16px; font-weight: 500; }
+    .error-msg { font-size: 13px; color: var(--red); text-align: center; min-height: 18px; margin-bottom: 14px; font-weight: 500; }
     
-    .btn-ios { background: var(--brand); color: #fff; border: none; border-radius: 12px; font-size: 17px; font-weight: 600; padding: 14px; width: 100%; cursor: pointer; transition: opacity 0.2s; }
-    .btn-ios:active { opacity: 0.8; }
-    .btn-ios:disabled { opacity: 0.5; }
+    .btn-ios { background: var(--brand); color: #fdfaf5; border: none; border-radius: 12px; font-size: 15px; font-weight: 600; padding: 15px; width: 100%; cursor: pointer; transition: background 0.2s, opacity 0.2s; font-family: 'DM Sans', sans-serif; letter-spacing: 0.5px; }
+    .btn-ios:active { background: var(--brand-light); }
+    .btn-ios:disabled { opacity: 0.45; }
     
     .lang-toggle { display: flex; justify-content: center; gap: 16px; margin-top: 24px; }
-    .lang-btn { background: none; border: none; font-size: 15px; color: var(--text-muted); font-weight: 500; cursor: pointer; }
-    .lang-btn.active { color: var(--blue); font-weight: 600; }
+    .lang-btn { background: none; border: none; font-size: 13px; color: var(--text-muted); font-weight: 500; cursor: pointer; letter-spacing: 0.5px; }
+    .lang-btn.active { color: var(--brand); font-weight: 600; }
 
     #adminHub { display: none; }
-    .hub-title { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
-    .hub-subtitle { font-size: 15px; color: var(--text-muted); margin-bottom: 24px; }
-    .portal-btn { background: var(--surface); border-radius: 12px; padding: 16px; display: flex; align-items: center; gap: 16px; margin-bottom: 12px; border: none; width: 100%; text-align: left; cursor: pointer; }
-    .portal-btn:active { background: #e5e5ea; }
-    .portal-icon { font-size: 20px; width: 32px; text-align: center; }
+    .hub-title { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; margin-bottom: 4px; color: var(--brand); }
+    .hub-subtitle { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
+    .portal-btn { background: var(--surface); border-radius: 12px; padding: 16px; display: flex; align-items: center; gap: 14px; margin-bottom: 10px; border: 1px solid var(--border); width: 100%; text-align: left; cursor: pointer; transition: background 0.15s, border-color 0.15s; }
+    .portal-btn:active { background: var(--surface-2); border-color: var(--brand-light); }
+    .portal-icon { font-size: 18px; width: 30px; text-align: center; }
     .portal-text { flex: 1; }
-    .portal-name { font-size: 17px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
-    .portal-desc { font-size: 13px; color: var(--text-muted); }
-    .portal-arrow { color: var(--border); font-size: 20px; }
+    .portal-name { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+    .portal-desc { font-size: 12px; color: var(--text-muted); }
+    .portal-arrow { color: var(--border); font-size: 18px; }
   </style>
 </head>
 <body>
@@ -107,7 +108,7 @@
     
     function setLang(lang) {
       currentLang = lang; sessionStorage.setItem("lova_lang", lang);
-      document.getElementById("btnEN").classList.toggle("active", lang==="en");
+        document.getElementById("btnEN").classList.toggle("active", lang==="en");
       document.getElementById("btnTH").classList.toggle("active", lang==="th");
       const t = T[lang];
       document.getElementById("txt_system").textContent = t.system;
