@@ -15,62 +15,61 @@
     }
     *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
     body{font-family:'Plus Jakarta Sans','Sarabun',sans-serif;background:var(--canvas);min-height:100vh;padding-bottom:60px;}
-    .top-nav{background:var(--navy);padding:13px 16px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
-    .nav-left{display:flex;align-items:baseline;gap:10px;}
-    .nav-wordmark{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:#fff;letter-spacing:1px;}
-    .nav-tag{font-size:10px;font-weight:600;color:rgba(255,255,255,0.4);letter-spacing:1.5px;text-transform:uppercase;}
-    .nav-right{display:flex;align-items:center;gap:8px;}
-    .nav-user{font-size:12px;font-weight:500;color:rgba(255,255,255,0.55);}
-    .lang-toggle-nav{display:flex;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);border-radius:16px;padding:2px;gap:1px;}
-    .lang-btn{padding:3px 8px;border-radius:12px;font-size:10px;font-weight:600;cursor:pointer;border:none;background:transparent;color:rgba(255,255,255,0.5);transition:all 0.15s;}
+    .top-nav{background:var(--navy);padding:10px 12px;display:flex;align-items:center;justify-content:space-between;gap:8px;position:sticky;top:0;z-index:100;}
+    .nav-left{display:flex;align-items:baseline;gap:8px;flex:1 1 auto;min-width:0;overflow:hidden;}
+    .nav-wordmark{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#fff;letter-spacing:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex-shrink:1;}
+    .nav-tag{font-size:9px;font-weight:600;color:rgba(255,255,255,0.4);letter-spacing:1px;text-transform:uppercase;flex-shrink:0;}
+    .nav-right{display:flex;align-items:center;gap:6px;flex:0 0 auto;}
+    .nav-user{font-size:11px;font-weight:500;color:rgba(255,255,255,0.6);margin-right:2px;}
+    .lang-toggle-nav{display:flex;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:2px;gap:1px;}
+    .lang-btn{padding:2px 6px;border-radius:10px;font-size:9px;font-weight:600;cursor:pointer;border:none;background:transparent;color:rgba(255,255,255,0.5);transition:all 0.15s;}
     .lang-btn.active{background:rgba(255,255,255,0.2);color:#fff;}
-    .btn-logout{background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.12);padding:6px 12px;border-radius:6px;font-family:'Plus Jakarta Sans','Sarabun',sans-serif;font-size:11px;font-weight:500;cursor:pointer;transition:background 0.15s;}
-    .content{padding:16px;max-width:640px;margin:0 auto;}
-    .section-label{font-size:10px;font-weight:600;color:var(--text-3);letter-spacing:1.5px;text-transform:uppercase;margin:20px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border-soft);}
-    .select-all-bar{background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:12px 14px;margin-bottom:12px;}
-    .select-all-bar label{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:500;color:var(--text-2);cursor:pointer;}
-    input[type="checkbox"]{width:17px;height:17px;accent-color:var(--navy);cursor:pointer;}
-    .branch-block{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden;box-shadow:0 1px 4px rgba(26,31,46,0.04);}
-    .branch-header{background:var(--navy);color:#fff;padding:13px 16px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background 0.15s;}
+    .btn-logout{background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.12);padding:5px 8px;border-radius:6px;font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:500;cursor:pointer;transition:background 0.15s;}
+    .content{padding:14px;max-width:640px;margin:0 auto;}
+    .section-label{font-size:10px;font-weight:600;color:var(--text-3);letter-spacing:1.5px;text-transform:uppercase;margin:16px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border-soft);}
+    .select-all-bar{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px 12px;margin-bottom:10px;}
+    .select-all-bar label{display:flex;align-items:center;gap:10px;font-size:11px;font-weight:500;color:var(--text-2);cursor:pointer;}
+    input[type="checkbox"]{width:16px;height:16px;accent-color:var(--navy);cursor:pointer;}
+    .branch-block{background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:10px;overflow:hidden;box-shadow:0 1px 3px rgba(26,31,46,0.03);}
+    .branch-header{background:var(--navy);color:#fff;padding:10px 14px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background 0.15s;}
     .branch-header:active{background:var(--navy2);}
-    .badge-count{font-size:9px;font-weight:600;background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.7);padding:2px 8px;border-radius:4px;}
-    .order-group{margin:10px;border:1px solid var(--border);border-radius:9px;background:var(--surface);overflow:hidden;}
-    .order-group-head{background:var(--canvas);padding:11px 14px;display:flex;align-items:center;border-bottom:1px solid var(--border);gap:12px;}
+    .badge-count{font-size:9px;font-weight:600;background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.8);padding:2px 6px;border-radius:4px;}
+    .order-group{margin:8px;border:1px solid var(--border);border-radius:8px;background:var(--surface);overflow:hidden;}
+    .order-group-head{background:var(--canvas);padding:9px 12px;display:flex;align-items:center;border-bottom:1px solid var(--border);gap:10px;}
     .order-group-info{flex:1;cursor:pointer;}
-    .order-group-id{font-size:12px;font-weight:600;color:var(--text);}
-    .order-group-meta{font-size:11px;color:var(--text-3);margin-top:2px;}
-    .toggle-icon{font-size:10px;color:var(--text-3);padding:8px;cursor:pointer;}
-    .admin-item-row{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-bottom:1px dashed var(--border-soft);}
+    .order-group-id{font-size:11px;font-weight:600;color:var(--text);}
+    .order-group-meta{font-size:10px;color:var(--text-3);margin-top:2px;}
+    .toggle-icon{font-size:10px;color:var(--text-3);padding:6px;cursor:pointer;}
+    .admin-item-row{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-bottom:1px dashed var(--border-soft);}
     .admin-item-row:last-child{border-bottom:none;}
-    .admin-item-left{display:flex;align-items:flex-start;gap:12px;flex:1;}
-    .admin-item-name{font-size:13px;font-weight:500;color:var(--text);}
-    .admin-item-remark{font-size:11px;color:var(--s-amber);margin-top:4px;}
-    .admin-item-right{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
-    .req-label{font-size:10px;color:var(--text-3);letter-spacing:0.5px;text-transform:uppercase;}
-    .qty-input{width:60px;height:42px;text-align:center;font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:500;border:1px solid var(--border);border-radius:8px;background:var(--canvas);color:var(--text);outline:none;padding:0;-webkit-appearance:none;transition:0.15s;}
+    .admin-item-left{display:flex;align-items:flex-start;gap:10px;flex:1;}
+    .admin-item-name{font-size:12px;font-weight:500;color:var(--text);}
+    .admin-item-remark{font-size:10px;color:var(--s-amber);margin-top:3px;}
+    .admin-item-right{display:flex;flex-direction:column;align-items:flex-end;gap:3px;}
+    .req-label{font-size:9px;color:var(--text-3);letter-spacing:0.5px;text-transform:uppercase;}
+    .qty-input{width:50px;height:36px;text-align:center;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:500;border:1px solid var(--border);border-radius:6px;background:var(--canvas);color:var(--text);outline:none;padding:0;-webkit-appearance:none;transition:0.15s;}
     .qty-input:focus{border-color:var(--navy);background:var(--surface);}
-    .adhoc-group{margin:10px;border:1px solid var(--s-green-border);border-radius:9px;overflow:hidden;}
-    .adhoc-head{background:var(--s-green-bg);padding:11px 14px;border-bottom:1px dashed var(--s-green-border);font-size:11px;font-weight:600;color:var(--s-green);text-transform:uppercase;letter-spacing:0.5px;}
-    .adhoc-item-row{display:flex;justify-content:space-between;align-items:center;padding:11px 14px;border-bottom:1px dashed #f0fdf4;background:var(--surface);}
+    .adhoc-group{margin:8px;border:1px solid var(--s-green-border);border-radius:8px;overflow:hidden;}
+    .adhoc-head{background:var(--s-green-bg);padding:9px 12px;border-bottom:1px dashed var(--s-green-border);font-size:10px;font-weight:600;color:var(--s-green);text-transform:uppercase;letter-spacing:0.5px;}
+    .adhoc-item-row{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-bottom:1px dashed #f0fdf4;background:var(--surface);}
     .adhoc-item-row:last-child{border-bottom:none;}
-    .adhoc-item-name{font-size:13px;font-weight:500;color:var(--text);}
-    .adhoc-qty{font-size:17px;font-weight:500;color:var(--text);min-width:36px;text-align:center;}
-    .btn-undo{background:var(--canvas);color:var(--text-3);border:1px solid var(--border);border-radius:6px;padding:5px 11px;font-family:'Plus Jakarta Sans','Sarabun',sans-serif;font-size:11px;font-weight:500;cursor:pointer;transition:background 0.15s;}
-    .add-item-bar{display:flex;gap:8px;padding:11px 10px;background:var(--canvas);border-top:1px solid var(--border);align-items:center;}
-    .add-item-select{flex:1;min-width:0;height:42px;border-radius:8px;border:1px solid var(--border);background:var(--surface);font-family:'Plus Jakarta Sans','Sarabun',sans-serif;font-size:13px;padding:0 10px;color:var(--text);outline:none;}
-    .add-item-qty{width:60px;flex-shrink:0;height:42px;text-align:center;font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;font-weight:500;border:1px solid var(--border);border-radius:8px;background:var(--surface);color:var(--text);padding:0;outline:none;-webkit-appearance:none;}
-    .btn-add-confirm{width:42px;flex-shrink:0;height:42px;background:var(--s-green);color:#fff;border:none;border-radius:8px;font-size:18px;cursor:pointer;transition:0.15s;display:flex;align-items:center;justify-content:center;padding:0;}
-    .btn-add-confirm:active{opacity:0.85;transform:scale(0.95);}
-    .btn-add-trigger{width:100%;background:var(--canvas);color:var(--text-3);border:none;border-top:1px solid var(--border);padding:13px;font-family:'Plus Jakarta Sans','Sarabun',sans-serif;font-size:11px;font-weight:500;cursor:pointer;text-transform:uppercase;letter-spacing:0.5px;transition:background 0.15s;}
-    .note-area{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:13px;width:100%;font-family:'Plus Jakarta Sans','Sarabun',sans-serif;font-size:14px;color:var(--text);resize:vertical;min-height:80px;outline:none;transition:border-color 0.15s;}
+    .adhoc-item-name{font-size:12px;font-weight:500;color:var(--text);}
+    .adhoc-qty{font-size:15px;font-weight:500;color:var(--text);min-width:32px;text-align:center;}
+    .btn-undo{background:var(--canvas);color:var(--text-3);border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:500;cursor:pointer;}
+    .add-item-bar{display:flex;gap:6px;padding:10px;background:var(--canvas);border-top:1px solid var(--border);align-items:center;}
+    .add-item-select{flex:1;min-width:0;height:36px;border-radius:6px;border:1px solid var(--border);background:var(--surface);font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;padding:0 8px;color:var(--text);outline:none;}
+    .add-item-qty{width:50px;flex-shrink:0;height:36px;text-align:center;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:500;border:1px solid var(--border);border-radius:6px;background:var(--surface);color:var(--text);padding:0;outline:none;-webkit-appearance:none;}
+    .btn-add-confirm{width:36px;flex-shrink:0;height:36px;background:var(--s-green);color:#fff;border:none;border-radius:6px;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;}
+    .btn-add-trigger{width:100%;background:var(--canvas);color:var(--text-3);border:none;border-top:1px solid var(--border);padding:10px;font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:600;cursor:pointer;text-transform:uppercase;letter-spacing:0.5px;}
+    .note-area{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px 12px;width:100%;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;color:var(--text);resize:vertical;min-height:70px;outline:none;}
     .note-area:focus{border-color:var(--navy2);}
-    .btn-primary{width:100%;height:52px;border:none;border-radius:10px;font-family:'Plus Jakarta Sans','Sarabun',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.3px;cursor:pointer;margin-top:8px;transition:opacity 0.15s,transform 0.15s;}
+    .btn-primary{width:100%;height:46px;border:none;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.3px;cursor:pointer;margin-top:8px;transition:opacity 0.15s,transform 0.15s;}
     .btn-primary:active{transform:scale(0.98);}
     .btn-primary:disabled{opacity:0.4;cursor:not-allowed;transform:none;}
     .btn-red{background:var(--red);color:#fff;}
     .btn-red:hover:not(:disabled){background:#a33024;}
-    .loading{text-align:center;color:var(--text-3);padding:40px 20px;font-size:13px;}
-    .empty-note{padding:18px;text-align:center;font-size:11px;color:var(--text-3);text-transform:uppercase;letter-spacing:0.5px;}
+    .loading{text-align:center;color:var(--text-3);padding:30px 20px;font-size:12px;}
+    .empty-note{padding:12px;text-align:center;font-size:10px;color:var(--text-3);text-transform:uppercase;letter-spacing:0.5px;}
   </style>
 </head>
 <body>
@@ -171,7 +170,7 @@
             html+=`<div class="order-group"><div class="order-group-head"><input type="checkbox" class="admin-chk" id="chk-ord-${safeOrdId}" onchange="toggleGroupCheckboxes('${safeOrdId}',this)" checked><div class="order-group-info" onclick="toggleAccordion('ord-${safeOrdId}')"><div class="order-group-id">${ordId}</div><div class="order-group-meta">${t("by")} ${ord.orderedBy} · ${ord.date}</div></div><span class="toggle-icon" id="icon-ord-${safeOrdId}" onclick="toggleAccordion('ord-${safeOrdId}')"></span></div><div id="body-ord-${safeOrdId}">`;
             ord.items.forEach(order=>{
               const isUrgent = order.remark && order.remark.includes(" URGENT");
-              const rStyle = isUrgent ? "color: var(--red); font-weight: 700; background: var(--red-soft); padding: 3px 6px; border-radius: 4px; display: inline-block; border: 1px solid var(--red-border);" : "color: var(--s-amber);";
+              const rStyle = isUrgent ? "color: var(--red); font-weight: 700; background: var(--red-soft); padding: 2px 5px; border-radius: 4px; display: inline-block; border: 1px solid var(--red-border);" : "color: var(--s-amber);";
               const remarkHtml=order.remark?`<div class="admin-item-remark" style="${rStyle}">${order.remark}</div>`:"";
               
               html+=`<div class="admin-item-row"><div class="admin-item-left"><input type="checkbox" id="chk-row-${order.rowNum}" class="admin-chk grp-${safeOrdId}" checked><div><div class="admin-item-name">${order.item}</div>${remarkHtml}</div></div><div class="admin-item-right"><div class="req-label">${t("requested")}: ${order.qty}</div><input type="number" id="qty-row-${order.rowNum}" class="qty-input" value="${order.qty}"></div></div>`;
@@ -180,8 +179,8 @@
           }
           if(bAdHoc.length>0){
             html+=`<div class="adhoc-group"><div class="adhoc-head">${t("admin_adhoc")}</div>${bAdHoc.map(a=>{
-              const urgHtml = a.isUrgent ? `<span style="color:var(--red);font-size:10px;font-weight:700;margin-left:8px;background:var(--red-soft);padding:2px 4px;border-radius:4px;border:1px solid var(--red-border);"> URGENT</span>` : '';
-              return `<div class="adhoc-item-row"><div style="display:flex;align-items:center;gap:12px;"><input type="checkbox" id="chk-adhoc-${a.id}" class="admin-chk" checked><div class="adhoc-item-name">${a.item}${urgHtml}</div></div><div style="display:flex;align-items:center;gap:12px;"><div class="adhoc-qty">${a.qty}</div><button class="btn-undo" onclick="removeAdHoc('${a.id}')">${t("undo")}</button></div></div>`;
+              const urgHtml = a.isUrgent ? `<span style="color:var(--red);font-size:9px;font-weight:700;margin-left:6px;background:var(--red-soft);padding:2px 4px;border-radius:4px;border:1px solid var(--red-border);"> URGENT</span>` : '';
+              return `<div class="adhoc-item-row"><div style="display:flex;align-items:center;gap:10px;"><input type="checkbox" id="chk-adhoc-${a.id}" class="admin-chk" checked><div class="adhoc-item-name">${a.item}${urgHtml}</div></div><div style="display:flex;align-items:center;gap:10px;"><div class="adhoc-qty">${a.qty}</div><button class="btn-undo" onclick="removeAdHoc('${a.id}')">${t("undo")}</button></div></div>`;
             }).join("")}</div>`;
           }
         }
@@ -189,8 +188,8 @@
           html+=`<div class="add-item-bar">
             <select id="new-item-${safeBranch}" class="add-item-select">${prodOptions}</select>
             <input type="number" id="new-qty-${safeBranch}" class="add-item-qty" placeholder="${currentLang==="th"?"":"Qty"}">
-            <label style="display:flex; align-items:center; gap:4px; font-size:11px; color:var(--red); font-weight:700; cursor:pointer;">
-              <input type="checkbox" id="new-urg-${safeBranch}" style="width:16px; height:16px; accent-color:var(--red); cursor:pointer;">
+            <label style="display:flex; align-items:center; gap:4px; font-size:10px; color:var(--red); font-weight:700; cursor:pointer;">
+              <input type="checkbox" id="new-urg-${safeBranch}" style="width:14px; height:14px; accent-color:var(--red); cursor:pointer;">
               URGENT
             </label>
             <button class="btn-add-confirm" onclick="addAdHoc('${branch}','${safeBranch}')"></button>
