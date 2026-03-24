@@ -4,101 +4,102 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>[COMPANY_NAME] — Branch Ordering</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sarabun:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --navy: #1a1f2e; --navy2: #2d3447;
-      --red: #c0392b; --red-soft: #fdf0ef; --red-border: #f5c6c2;
-      --canvas: #f7f5f0; --surface: #ffffff;
-      --border: #e4e1db; --border-soft: #ede9e3;
-      --text: #1a1f2e; --text-2: #5a5750; --text-3: #9a9690;
+      --bg: #f2f2f7; --surface: #ffffff;
+      --text: #000000; --text-muted: #8e8e93;
+      --border: #c6c6c8; --blue: #007aff; --red: #ff3b30;
+      --brand: #1a1f2e;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-    body { font-family: 'Plus Jakarta Sans', 'Sarabun', sans-serif; background: var(--canvas); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 16px; }
-    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; width: 100%; max-width: 380px; overflow: hidden; box-shadow: 0 4px 20px rgba(26,31,46,0.06); }
-    .card-top { padding: 36px 24px 20px; text-align: center; border-bottom: 1px solid var(--border-soft); position: relative; }
-    .lang-toggle { position: absolute; top: 12px; right: 12px; display: flex; background: var(--canvas); border: 1px solid var(--border); border-radius: 20px; padding: 3px; gap: 2px; }
-    .lang-btn { padding: 4px 10px; border-radius: 16px; font-size: 10px; font-weight: 600; cursor: pointer; border: none; background: transparent; color: var(--text-3); transition: all 0.15s; }
-    .lang-btn.active { background: var(--navy); color: #fff; }
-    .wordmark { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: var(--text); letter-spacing: 1.5px; margin-top: 8px; line-height: 1.2; }
-    .wordmark-accent { display: block; width: 24px; height: 2px; background: var(--red); border-radius: 1px; margin: 6px auto 8px; }
-    .wordmark-sub { font-size: 9px; font-weight: 600; color: var(--text-3); letter-spacing: 1.5px; text-transform: uppercase; }
-    .card-body { padding: 24px 24px 28px; }
-    .field-label { font-size: 10px; font-weight: 600; color: var(--text-3); letter-spacing: 1.5px; text-transform: uppercase; display: block; margin-bottom: 8px; }
-    .pin-input { width: 100%; height: 50px; background: var(--canvas); border: 1.5px solid var(--border); border-radius: 8px; text-align: center; font-family: 'Plus Jakarta Sans', monospace; font-size: 22px; font-weight: 600; letter-spacing: 8px; color: var(--text); outline: none; -webkit-appearance: none; transition: border-color 0.2s, background 0.2s; margin-bottom: 6px; }
-    .pin-input:focus { border-color: var(--navy); background: #fff; }
-    .pin-input.shake { border-color: var(--red); animation: shake 0.35s ease; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Plus Jakarta Sans", sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 16px; }
+    
+    .login-container { width: 100%; max-width: 360px; }
+    .header-text { text-align: center; margin-bottom: 32px; }
+    .company-title { font-size: 28px; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 4px; }
+    .system-title { font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+    
+    .ios-card { background: var(--surface); border-radius: 12px; overflow: hidden; margin-bottom: 24px; }
+    .ios-list-item { padding: 12px 16px; border-bottom: 0.5px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+    .ios-list-item:last-child { border-bottom: none; }
+    
+    .pin-input { width: 100%; border: none; font-size: 24px; font-weight: 600; letter-spacing: 8px; text-align: center; outline: none; padding: 16px; font-family: monospace; background: transparent; }
+    .pin-input::placeholder { color: var(--border); letter-spacing: 8px; }
+    .pin-input.shake { color: var(--red); animation: shake 0.35s ease; }
     @keyframes shake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-5px)} 60%{transform:translateX(5px)} }
-    .error-msg { font-size: 11px; font-weight: 500; color: var(--red); min-height: 18px; margin-bottom: 12px; text-align: center; }
-    .btn { width: 100%; height: 46px; border: none; border-radius: 8px; font-family: 'Plus Jakarta Sans', 'Sarabun', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.3px; cursor: pointer; transition: opacity 0.15s, transform 0.15s; }
-    .btn:active { transform: scale(0.98); }
-    .btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
-    .btn-primary { background: var(--navy); color: #fff; }
-    .btn-primary:hover:not(:disabled) { background: var(--navy2); }
+    
+    .error-msg { font-size: 13px; color: var(--red); text-align: center; min-height: 18px; margin-bottom: 16px; font-weight: 500; }
+    
+    .btn-ios { background: var(--brand); color: #fff; border: none; border-radius: 12px; font-size: 17px; font-weight: 600; padding: 14px; width: 100%; cursor: pointer; transition: opacity 0.2s; }
+    .btn-ios:active { opacity: 0.8; }
+    .btn-ios:disabled { opacity: 0.5; }
+    
+    .lang-toggle { display: flex; justify-content: center; gap: 16px; margin-top: 24px; }
+    .lang-btn { background: none; border: none; font-size: 15px; color: var(--text-muted); font-weight: 500; cursor: pointer; }
+    .lang-btn.active { color: var(--blue); font-weight: 600; }
+
     #adminHub { display: none; }
-    .welcome-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
-    .welcome-hint { font-size: 11px; color: var(--text-3); margin-bottom: 20px; }
-    .hub-btn { width: 100%; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; margin-bottom: 8px; cursor: pointer; display: flex; align-items: center; gap: 12px; text-align: left; transition: border-color 0.15s, background 0.15s, transform 0.1s; }
-    .hub-btn:hover { background: var(--canvas); border-color: var(--navy2); }
-    .hub-btn:active { transform: scale(0.99); }
-    .hub-btn.is-admin { border-color: var(--red-border); background: var(--red-soft); }
-    .hub-btn.is-admin:hover { background: #fae6e4; }
-    .hub-icon { width: 34px; height: 34px; border-radius: 8px; background: var(--canvas); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
-    .hub-icon.staff { background: #eaf4f0; }
-    .hub-icon.driver { background: #eef3fb; }
-    .hub-icon.admin { background: var(--red-soft); }
-    .hub-info { flex: 1; }
-    .hub-title { font-size: 12px; font-weight: 600; color: var(--text); }
-    .hub-desc { font-size: 10px; color: var(--text-3); margin-top: 2px; }
-    .hub-arrow { font-size: 12px; color: var(--text-3); }
-    .card-footer { text-align: center; padding: 0 24px 16px; font-size: 9px; font-weight: 500; color: var(--text-3); letter-spacing: 1.5px; text-transform: uppercase; }
+    .hub-title { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+    .hub-subtitle { font-size: 15px; color: var(--text-muted); margin-bottom: 24px; }
+    .portal-btn { background: var(--surface); border-radius: 12px; padding: 16px; display: flex; align-items: center; gap: 16px; margin-bottom: 12px; border: none; width: 100%; text-align: left; cursor: pointer; }
+    .portal-btn:active { background: #e5e5ea; }
+    .portal-icon { font-size: 20px; width: 32px; text-align: center; }
+    .portal-text { flex: 1; }
+    .portal-name { font-size: 17px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+    .portal-desc { font-size: 13px; color: var(--text-muted); }
+    .portal-arrow { color: var(--border); font-size: 20px; }
   </style>
 </head>
 <body>
-  <div class="card">
-    <div class="card-top">
+  <div class="login-container">
+    <div class="header-text">
+      <div class="company-title">[COMPANY_NAME]</div>
+      <div class="system-title" id="txt_system">Branch Ordering System</div>
+    </div>
+
+    <div id="loginView">
+      <div class="ios-card">
+        <input type="password" id="universalPin" class="pin-input" placeholder="••••" inputmode="numeric" pattern="[0-9]*" maxlength="6" autocomplete="off">
+      </div>
+      <div class="error-msg" id="errorMsg"></div>
+      <button class="btn-ios" id="btnEnter" onclick="verifyLogin()">Authenticate</button>
+      
       <div class="lang-toggle">
-        <button class="lang-btn active" id="btnEN" onclick="setLang('en')">EN</button>
-        <button class="lang-btn" id="btnTH" onclick="setLang('th')">TH</button>
-      </div>
-      <div class="wordmark">[COMPANY_NAME]</div>
-      <span class="wordmark-accent"></span>
-      <div class="wordmark-sub" id="txt_system">Branch Ordering System</div>
-    </div>
-    <div class="card-body">
-      <div id="loginView">
-        <label class="field-label" id="txt_pin_label">Access PIN</label>
-        <input type="password" id="universalPin" class="pin-input" placeholder="····" inputmode="numeric" pattern="[0-9]*" maxlength="6" autocomplete="off">
-        <div class="error-msg" id="errorMsg"></div>
-        <button class="btn btn-primary" id="btnEnter" onclick="verifyLogin()">Authenticate</button>
-      </div>
-      <div id="adminHub">
-        <div class="welcome-name" id="welcomeName">Welcome</div>
-        <div class="welcome-hint" id="txt_select_portal">Select your portal to continue</div>
-        <button class="hub-btn" onclick="goTo('staff', this)">
-          <div class="hub-icon staff"></div>
-          <div class="hub-info"><div class="hub-title" id="txt_staff_title">Kitchen Staff Portal</div><div class="hub-desc" id="txt_staff_desc">Place and track branch orders</div></div>
-          <div class="hub-arrow"></div>
-        </button>
-        <button class="hub-btn" onclick="goTo('driver', this)">
-          <div class="hub-icon driver"></div>
-          <div class="hub-info"><div class="hub-title" id="txt_driver_title">Driver Dispatch Portal</div><div class="hub-desc" id="txt_driver_desc">Manage deliveries and manifests</div></div>
-          <div class="hub-arrow"></div>
-        </button>
-        <button class="hub-btn is-admin" onclick="goTo('admin', this)">
-          <div class="hub-icon admin"></div>
-          <div class="hub-info"><div class="hub-title" id="txt_admin_title">Admin Control Tower</div><div class="hub-desc" id="txt_admin_desc">Review, edit and dispatch orders</div></div>
-          <div class="hub-arrow"></div>
-        </button>
+        <button class="lang-btn active" id="btnEN" onclick="setLang('en')">English</button>
+        <button class="lang-btn" id="btnTH" onclick="setLang('th')">ภาษาไทย</button>
       </div>
     </div>
-    <div class="card-footer">[COMPANY_NAME]</div>
+
+    <div id="adminHub">
+      <div class="hub-title" id="welcomeName">Welcome</div>
+      <div class="hub-subtitle" id="txt_select_portal">Select your portal to continue</div>
+      
+      <button class="portal-btn" onclick="goTo('staff', this)">
+        <div class="portal-icon">🍳</div>
+        <div class="portal-text"><div class="portal-name" id="txt_staff_title">Kitchen Staff</div><div class="portal-desc" id="txt_staff_desc">Place and track orders</div></div>
+        <div class="portal-arrow">›</div>
+      </button>
+      
+      <button class="portal-btn" onclick="goTo('driver', this)">
+        <div class="portal-icon">🚚</div>
+        <div class="portal-text"><div class="portal-name" id="txt_driver_title">Driver Dispatch</div><div class="portal-desc" id="txt_driver_desc">Manage deliveries</div></div>
+        <div class="portal-arrow">›</div>
+      </button>
+      
+      <button class="portal-btn" onclick="goTo('admin', this)">
+        <div class="portal-icon">⚙️</div>
+        <div class="portal-text"><div class="portal-name" id="txt_admin_title">Admin Control</div><div class="portal-desc" id="txt_admin_desc">Review and edit orders</div></div>
+        <div class="portal-arrow">›</div>
+      </button>
+    </div>
   </div>
+
   <script>
     const GAS_URL = "https://script.google.com/macros/s/AKfycbxxYwYzml0eTiKjYERhcVKmgjeqP7x3rQrgpOTewhFrtH6BGUFEUh7-Da_EX6tnzJF75Q/exec";
     
     const T = {
-      en: { system:"Branch Ordering System", pin_label:"Access PIN", authenticate:"Authenticate", verifying:"Verifying…", select_portal:"Select your portal to continue", staff_title:"Kitchen Staff Portal", staff_desc:"Place and track branch orders", driver_title:"Driver Dispatch Portal", driver_desc:"Manage deliveries and manifests", admin_title:"Admin Control Tower", admin_desc:"Review, edit and dispatch orders", welcome:"Welcome, " },
+      en: { system:"Branch Ordering System", pin_label:"Access PIN", authenticate:"Authenticate", verifying:"Verifying…", select_portal:"Select your portal to continue", staff_title:"Kitchen Staff", staff_desc:"Place and track branch orders", driver_title:"Driver Dispatch", driver_desc:"Manage deliveries and manifests", admin_title:"Admin Control", admin_desc:"Review, edit and dispatch orders", welcome:"Welcome, " },
       th: { system:"", pin_label:"", authenticate:"", verifying:"…", select_portal:"", staff_title:"", staff_desc:"", driver_title:"", driver_desc:"", admin_title:"", admin_desc:"  ", welcome:", " }
     };
     let currentLang = sessionStorage.getItem("lova_lang") || "en";
@@ -110,7 +111,6 @@
       document.getElementById("btnTH").classList.toggle("active", lang==="th");
       const t = T[lang];
       document.getElementById("txt_system").textContent = t.system;
-      document.getElementById("txt_pin_label").textContent = t.pin_label;
       document.getElementById("btnEnter").textContent = t.authenticate;
       document.getElementById("txt_select_portal").textContent = t.select_portal;
       document.getElementById("txt_staff_title").textContent = t.staff_title;
